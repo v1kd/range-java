@@ -10,12 +10,6 @@ public class IntegerRange implements Range<Integer> {
     private final int step;
 
     public IntegerRange(int start, int endInclusive, int step) {
-        if (endInclusive < start) {
-            throw new IllegalArgumentException(
-                    "Expected endInclusive to be >= start"
-            );
-        }
-
         if (step <= 0) {
             throw new IllegalArgumentException(
                     "Expected step to be > 0"

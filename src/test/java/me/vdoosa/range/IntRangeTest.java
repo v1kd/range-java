@@ -2,7 +2,6 @@ package me.vdoosa.range;
 
 import org.junit.jupiter.api.Test;
 
-import javax.tools.DiagnosticCollector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,12 +30,17 @@ public class IntRangeTest {
 
     @Test
     void incorrectArgs() {
-        assertThrows(IllegalArgumentException.class, () -> Range.of(1, 0),
-                "endInclusive >= start");
         assertThrows(IllegalArgumentException.class, () -> Range.of(1, 2, 0),
                 "step > 0");
         assertThrows(IllegalArgumentException.class, () -> Range.of(1,
                 2, -1), "step > 0");
+    }
+
+    @Test
+    void emptyRange() {
+        var list = new ArrayList<Integer>();
+        for (var num: Range.of(10, 1)) list.add(num);
+        assertEquals(0, list.size());
     }
 
     @Test
