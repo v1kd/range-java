@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-// May be sealed class with java?
 public class IntegerRange implements Range<Integer> {
     private final int start;
     private final int endInclusive;
